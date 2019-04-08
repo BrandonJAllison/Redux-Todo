@@ -36,12 +36,9 @@ function reducer(state = initialState, action) {
           };
 
           case DELETE_TODO:
-        return {
-          ...state,
-          todoItems: state.todoItems.filter(
-            item => !(item.id === action.payload)
-          )
-        };
+          
+         
+
       default:
         return state;
     }

@@ -6,14 +6,14 @@ import { Provider } from "react-redux";
 import reducer from "./reducers";
 
 import "./index.css";
-import ToDoApp from './components/ToDo'
+import ToDo from './components/ToDo'
 
 const store = createStore(reducer); 
 
 
 ReactDOM.render(
   <Provider store={store}>
-    <ToDoApp />
+    <ToDo />
   </Provider>,
   document.getElementById("root")
 );

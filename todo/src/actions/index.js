@@ -22,11 +22,10 @@ export const toggleToDo = id => {
     }
 }
 
-export const deleteTodo = id => {
-    console.log("delete todo", id);
+export const deleteToDo = () => {
     return {
       type: DELETE_TODO,
-      payload: id
+     
     };
   };
 
