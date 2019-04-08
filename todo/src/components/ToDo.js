@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../actions/index";
+import { addTodo, toggleToDo, deleteTodo } from "../actions/index";
 
+import './ToDoStyle.css'
 
 class ToDoApp extends Component {
   state = {
@@ -15,17 +16,38 @@ class ToDoApp extends Component {
   addToDo = event=> {
     event.preventDefault();
     this.props.addTodo(this.state.newTodo);
+    this.setState({
+      newTodo: ""
+    })
     console.log(this.state.newTodo);
   };
+
+  toggleToDo = id => {
+    this.props.toggleToDo(id);
+  };
+
+  deleteTodo = id => {
+    this.props.deleteTodo(id);
+  };
+
+  
+  
 
   render() {
     return (
       <div>
-        <div className="TodoList">
+         <div className="TodoList">
           {this.props.todoList.map(item => (
-            <h3>{item.todoItem}</h3>
+            <h1
+              className={`${item.completed ? "item-completed" : null}`}
+              key={item.id}
+              onClick={() => this.toggleToDo(item.id)}
+            >
+              {item.todoItem}
+            </h1>
           ))}
         </div>
+        <form>
         <input
           name="newTodo"
           type="text"
@@ -34,6 +56,9 @@ class ToDoApp extends Component {
           placeholder="Add something ToDo....."
         />
         <button onClick={this.addToDo}>Add Todo</button>
+        
+        </form>
+        
       </div>
     );
   }
@@ -45,5 +70,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleToDo, deleteTodo }
 )(ToDoApp);

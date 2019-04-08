@@ -1,7 +1,8 @@
-
+//actions
 
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
+export const DELETE_TODO = "DELETE_TODO"
 
 export const addTodo = todoItem => {
   console.log(todoItem);
@@ -20,4 +21,13 @@ export const toggleToDo = id => {
         payload: id
     }
 }
+
+export const deleteTodo = id => {
+    console.log("delete todo", id);
+    return {
+      type: DELETE_TODO,
+      payload: id
+    };
+  };
+
 
