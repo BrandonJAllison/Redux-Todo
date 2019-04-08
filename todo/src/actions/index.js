@@ -1,6 +1,7 @@
 
 
 export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
 
 export const addTodo = todoItem => {
   console.log(todoItem);
@@ -9,3 +10,14 @@ export const addTodo = todoItem => {
     payload: todoItem
   };
 };
+
+
+
+export const toggleToDo = id => {
+    console.log(id);
+    return {
+        type: TOGGLE_TODO,
+        payload: id
+    }
+}
+
