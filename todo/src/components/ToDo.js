@@ -7,18 +7,42 @@ import './ToDoStyle.css'
 const listDiv = {
   display: 'flex',
   alignItems: 'center',
-  padding: '15px',
+  padding: '5px',
   justifyContent: 'center'
 
 }
 
-const input = {
+const mainDiv = {
   display: 'flex',
   alignItems: 'center',
-  
+  marginTop: '20px',
   justifyContent: 'center'
 
 }
+const icon = {
+  margin: '0 10px'
+}
+
+const input ={
+  borderRadius: '15px',
+  padding: '10px',
+  marginRight: '10px',
+  border: '.5px solid black',
+  boxShadow: '0 0 5px #333'
+
+}
+
+const button ={
+  padding: '5px',
+  borderRadius: '10px',
+  color: '#61DAFB',
+  background: 'white',
+  border: '1px solid #61DAFB ',
+  boxShadow: '0 0 5px #333'
+
+}
+
+
 
 
 class ToDoApp extends Component {
@@ -53,16 +77,16 @@ class ToDoApp extends Component {
   render() {
     return (
       <div >
-         <form style={input}>
+         <form style={mainDiv}>
           <input
-            
+            style={input}
             name="newTodo"
             type="text"
             value={this.state.newTodo}
             onChange={this.handleChanges}
             placeholder="Add something ToDo....."
           />
-          <button onClick={this.addToDo}>Add Todo</button>
+          <button style={button} onClick={this.addToDo}>Add Todo</button>
           </form>
 
           <div>
@@ -75,7 +99,7 @@ class ToDoApp extends Component {
               >
                 {item.todoItem}
               </h4>
-               <i onClick={() => this.deleteToDo(item.id)} class="far fa-trash-alt"></i>
+               <i style={icon} onClick={() => this.deleteToDo(item.id)} class="far fa-trash-alt"></i>
             </div>
           ))}
         </div>
