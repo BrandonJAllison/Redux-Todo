@@ -77,16 +77,17 @@ class ToDoApp extends Component {
   render() {
     return (
       <div >
-         <form style={mainDiv}>
+         <form onSubmit={this.addToDo} style={mainDiv}>
           <input
             style={input}
+            required ='required'
             name="newTodo"
             type="text"
             value={this.state.newTodo}
             onChange={this.handleChanges}
             placeholder="Add something ToDo....."
           />
-          <button style={button} onClick={this.addToDo}>Add Todo</button>
+          <button style={button} >Add Todo</button>
           </form>
 
           <div>
