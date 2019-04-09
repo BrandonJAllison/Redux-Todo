@@ -26,8 +26,8 @@ class ToDoApp extends Component {
     this.props.toggleToDo(id);
   };
 
-  deleteToDo = () => {
-    this.props.deleteToDo();
+  deleteToDo = id => {
+    this.props.deleteToDo(id);
   };
 
   
@@ -36,15 +36,18 @@ class ToDoApp extends Component {
   render() {
     return (
       <div>
-         <div className="TodoList">
+          <div className="TodoList">
           {this.props.todoList.map(item => (
-            <h1
-              className={`${item.completed ? "item-completed" : null}`}
-              key={item.id}
-              onClick={() => this.toggleToDo(item.id)}
-            >
-              {item.todoItem}
-            </h1>
+            <div className="todo-item">
+              <h4
+                className={`${item.completed ? "item-completed" : null}`}
+                key={item.id}
+                onClick={() => this.toggleToDo(item.id)}
+              >
+                {item.todoItem}
+              </h4>
+              <h4 onClick={() => this.deleteToDo(item.id)}>x</h4>
+            </div>
           ))}
         </div>
           <form>
